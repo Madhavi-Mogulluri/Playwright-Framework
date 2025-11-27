@@ -146,6 +146,6 @@ jobs:
       - name: Report URLs
         run: |
           echo "Reports Published!"
-          echo "Playwright Built-in: https://madhu.muse.github.io/Playwright-Framework/playwright-report/index.html"
-          echo "Playwright HTML Reporter: https://madhu.muse.github.io/Playwright-Framework/playwright-html-report/index.html"
-          echo "Allure: https://madhu.muse.github.io/Playwright-Framework/allure-report/index.html"
+          echo "Playwright Built-in: https://madhavi-mogulluri.github.io/Playwright-Framework/playwright-report/index.html"
+          echo "Playwright HTML Reporter: https://madhavi-mogulluri.github.io/Playwright-Framework/playwright-html-report/index.html"
+          echo "Allure: https://madhavi-mogulluri.github.io/Playwright-Framework/allure-report/index.html"
