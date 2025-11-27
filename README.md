@@ -1,4 +1,4 @@
-# PWFWDemo Automation Reports
+# PlaywrightFramework Automation Reports
 
 Welcome to the **Playwrigt Framework** automation project. Below you can find the latest test results and HTML reports.
 

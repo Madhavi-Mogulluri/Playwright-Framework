@@ -2,7 +2,7 @@ import {test,expect} from '../fixtures/baseFixtures';
 
 
 
-test('validate login @login', async ({homepage}) =>{
+test('validate login', async ({homepage}) =>{
     
     await expect(homepage.page).toHaveTitle('My Account')
 })

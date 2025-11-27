@@ -10,19 +10,29 @@ type myFixture= {
 
 
 export const test = base.extend<myFixture>({
-    loginPage:async ({page},use) =>{
+    loginPage: async ({ page, baseURL }, use) => {
         const loginPage = new LoginPage(page);
-        await use(loginPage)
+        await loginPage.NavigateToURL(baseURL);
+        await use(loginPage);
     },
-    homepage :async ({loginPage,baseURL},use, testInfo)=>{  
-        await loginPage.NavigateToURL(baseURL)
-     const userName =   testInfo.project.metadata.username;
-     const password = testInfo.project.metadata.password;
+    homepage :async ({page,baseURL},use, testInfo)=>{  
+        const loginPage = new LoginPage(page);
+        await loginPage.NavigateToURL(baseURL);
+        
+        // Get credentials from project metadata
+        const userName = testInfo.project.metadata?.username;
+        const password = testInfo.project.metadata?.password;
 
-     const homepage = await loginPage.doLogin(userName,password)
-     expect(await homepage.isUserLoggedIn()).toBeTruthy;
+        if (!userName || !password) {
+            throw new Error('Username and password must be provided in project metadata');
+        }
 
-      await   use(homepage)
+        const homepage = await loginPage.doLogin(userName, password);
+        
+        // Verify successful login
+        expect(await homepage.isUserLoggedIn()).toBeTruthy();
+
+        await use(homepage);
 
     },
         

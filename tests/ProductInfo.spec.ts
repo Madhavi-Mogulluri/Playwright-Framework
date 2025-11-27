@@ -1,4 +1,4 @@
-import  {test,expect} from '../fixtures/baseFixtures';
+import  {test} from '../fixtures/baseFixtures';
 
 import { ProductInfoPage } from '../Pages/ProductInfoPage.js';
 
