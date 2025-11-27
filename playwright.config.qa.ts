@@ -1,8 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -12,9 +10,8 @@ export default defineConfig({
   /* Retry on CI only */
   //retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 6 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
+  workers: process.env.CI ? 4 : undefined,
+   reporter: [
     ['html'],
     ['list'],
     ['allure-playwright'],
@@ -23,55 +20,51 @@ export default defineConfig({
       title: 'OPEN CART HTML Report',
       project: 'Open Cart',
       release: '9.87.6',
-      testEnvironment: 'PROD',
+      testEnvironment: 'QA',
       embedAssets: true,
       embedAttachments: true,
       outputFolder: 'playwright-html-report',
       minifyAssets: true,
-      startServer: false,
+      startServer: false,  // Set to false for CI
     }]
-  ] ,
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  ],
+  
   use: {
-   
     trace: 'on-first-retry',
-    headless:true,
+    headless: !!process.env.CI,  // false locally, true in CI
     screenshot: 'on-first-failure',
-    video:'on',
-    baseURL : 'https://naveenautomationlabs.com/opencart/index.php'
+    video: 'on',
+    baseURL: 'https://naveenautomationlabs.com/opencart/index.php',
   },
-  metadata: {
-    username : 'pwtest@nal.com',
-    password: 'test123'
 
+  metadata: {
+    appUsername: 'gagantyagi@test.com',
+    appPassword: 'test@123',
   },
 
   /* Configure projects for major browsers */
+  /* ✅ All browsers enabled for manual selection via --project flag */
   projects: [
     {
       name: 'Google Chrome',
       use: {
         channel: 'chrome',
-        viewport: null,
+        viewport: { width: 1920, height: 1080 },  // ✅ Fixed viewport for CI (no --start-maximized in headless)
         launchOptions: {
-          args: ['--start-maximized'],
-          ignoreDefaultArgs: ['--window-size=1280,720']
+          args: ['--window-size=1920,1080'],
         }
       }
     },
-  
     // {
     //   name: 'Microsoft Edge',
     //   use: {
     //     channel: 'msedge',
-    //     viewport: null,
+    //     viewport: { width: 1920, height: 1080 },
     //     launchOptions: {
-    //       args: ['--start-maximized'],
-    //       ignoreDefaultArgs: ['--window-size=1280,720']
+    //       args: ['--window-size=1920,1080'],
     //     }
     //   }
     // },
-  
     // {
     //   name: 'Chromium',
     //   use: {
@@ -79,47 +72,28 @@ export default defineConfig({
     //     viewport: { width: 1920, height: 1080 },
     //     launchOptions: {
     //       args: [],
-    //       ignoreDefaultArgs: ['--window-size=1280,720']
     //     }
     //   }
     // },
-  
     // {
     //   name: 'Firefox',
     //   use: {
     //     browserName: 'firefox',
-    //     viewport: { width: 1920, height: 1080 },       
+    //     viewport: { width: 1920, height: 1080 },
     //     launchOptions: {
     //       args: [],
-    //       ignoreDefaultArgs: ['--window-size=1280,720']
     //     }
     //   }
     // },
-  
     // {
     //   name: 'WebKit',
     //   use: {
     //     browserName: 'webkit',
-    //     viewport: { width: 1920, height: 1080 },      
+    //     viewport: { width: 1920, height: 1080 },
     //     launchOptions: {
     //       args: [],
-    //       ignoreDefaultArgs: ['--window-size=1280,720']
     //     }
     //   }
     // }
   ],
-  /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    
-  
-  });
-    
-    
+});
