@@ -9,6 +9,6 @@ test('Register the user', async ({loginPage,baseURL,page}) =>{
    let emailid =  await StringUtil.getRandomEmailId()
    let isuserRegistered:boolean =await  registerPage.doRegister('sukumar','shetty',emailid,'9898989898','test123','yes');
     expect(isuserRegistered).toBeTruthy();
-    await page.pause()
+    
     
 })
