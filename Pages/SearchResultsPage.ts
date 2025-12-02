@@ -1,5 +1,5 @@
-import {Locator, Page, test} from '@playwright/test';
-import {ElementUtil} from '../Utils/ElementUtil.js'
+import {Locator, Page} from '@playwright/test';
+import {ElementUtil} from '../Utils/ElementUtil.js';
 import { ProductInfoPage} from './ProductInfoPage.js';
 
 
@@ -15,7 +15,7 @@ export class SearchResults {
     constructor (page:Page){
        this.page = page;
         this.eleUtil = new ElementUtil(page);
-        this.results = page.locator(`.product-thumb`)
+        this.results = page.locator('.product-thumb');
         
     }
    // 3. write actions in the same page class

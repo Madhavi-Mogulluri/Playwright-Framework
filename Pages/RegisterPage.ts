@@ -35,7 +35,7 @@ export class RegisterPage{
         this.agreeCheckbox = page.locator('[name="agree"]');
         this.continueButton = page.getByRole('button', { name: 'Continue' });
         this.successMsg = page.getByText('Your Account Has Been Created!', { exact: true });
-        this.logout = page.locator(`div.list-group a[href $= 'account/logout']`)
+        this.logout = page.locator('div.list-group a[href $= \'account/logout\']');
     }
     async doRegister(
         firstName:string,
@@ -46,23 +46,23 @@ export class RegisterPage{
         subscribe:string
     ):Promise<boolean>{
 
-        await this.eleUtil.fill(this.firstNameInput,firstName)
-        await this.eleUtil.fill(this.lastNameInput,lastName)
-        await this.eleUtil.fill(this.emailInput,emailId)
-        await this.eleUtil.fill(this.telephoneInput,telehone)
-        await this.eleUtil.fill(this.passwordInput,passwrod)
-        await this.eleUtil.fill(this.confirmPasswordInput,passwrod)
+        await this.eleUtil.fill(this.firstNameInput,firstName);
+        await this.eleUtil.fill(this.lastNameInput,lastName);
+        await this.eleUtil.fill(this.emailInput,emailId);
+        await this.eleUtil.fill(this.telephoneInput,telehone);
+        await this.eleUtil.fill(this.passwordInput,passwrod);
+        await this.eleUtil.fill(this.confirmPasswordInput,passwrod);
         if(subscribe === 'yes'){
-            await this.eleUtil.click(this.newsletterYesRadio)
+            await this.eleUtil.click(this.newsletterYesRadio);
 
         }
         else{
-            await this.eleUtil.click(this.newsletterNoRadio)
+            await this.eleUtil.click(this.newsletterNoRadio);
         }
         
-        await this.eleUtil.click(this.agreeCheckbox)
-        await this.eleUtil.click(this.continueButton)
-        return await this.eleUtil.isVisible(this.successMsg)
+        await this.eleUtil.click(this.agreeCheckbox);
+        await this.eleUtil.click(this.continueButton);
+        return await this.eleUtil.isVisible(this.successMsg);
  
     }
 

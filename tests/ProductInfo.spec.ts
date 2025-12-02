@@ -11,8 +11,8 @@ test('verify Product details',{tag:['@smoke','@sanity'],
    
 }, async ({homepage}) =>{
 
-    let sp = await homepage.searchProduct('Macbook')
-  let pip:ProductInfoPage =  await  sp.selectProduct('Macbook Pro')
-   await  pip.getAllProductData('Macbook Pro')
+    const sp = await homepage.searchProduct('Macbook');
+  const pip:ProductInfoPage =  await  sp.selectProduct('Macbook Pro');
+   await  pip.getAllProductData('Macbook Pro');
      
-})
+});

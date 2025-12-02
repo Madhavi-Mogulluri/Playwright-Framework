@@ -1,4 +1,4 @@
-import { Locator, Page, expect } from '@playwright/test'
+import { Locator, Page, expect } from '@playwright/test';
 
 type flexibleLocator = string | Locator;
 
@@ -7,11 +7,11 @@ export class ElementUtil {
 
     private page: Page;
 
-    private defaultTimeout: number = 30000
+    private defaultTimeout: number = 30000;
 
     constructor(page: Page, timeout: number = 30000) {
-        this.page = page
-        this.defaultTimeout = timeout
+        this.page = page;
+        this.defaultTimeout = timeout;
     }
     /**
       * this method will convert the string to locator or else return the semnatic based locators
@@ -48,7 +48,7 @@ export class ElementUtil {
             force: options?.force,
             timeout: options?.timeout || this.defaultTimeout
 
-        })
+        });
         console.log(`clicked on the ${locator}`);
     }
     /**
@@ -59,14 +59,14 @@ export class ElementUtil {
     async rightclick(locator: flexibleLocator): Promise<void> {
         await this.getLocator(locator).click({
             button: 'right'
-        })
+        });
     }
     /**
      * double click on the element
      * @param locator 
      */
     async doubleClick(locator: flexibleLocator): Promise<void> {
-        await this.getLocator(locator).dblclick({ timeout: this.defaultTimeout })
+        await this.getLocator(locator).dblclick({ timeout: this.defaultTimeout });
     }
     /**
      * fill the text in to the given element
@@ -74,7 +74,7 @@ export class ElementUtil {
      * @param text 
      */
     async fill(locator: flexibleLocator, text: string, index?: number): Promise<void> {
-        await this.getLocator(locator, index).fill(text, { timeout: this.defaultTimeout })
+        await this.getLocator(locator, index).fill(text, { timeout: this.defaultTimeout });
         console.log(`filled the ${text} in to the element ${locator}`);
     }
     /**
@@ -83,7 +83,7 @@ export class ElementUtil {
      * @param text 
      */
     async pressSequentially(locator: flexibleLocator, text: string): Promise<void> {
-        await this.getLocator(locator).pressSequentially(text, { delay: 500 })
+        await this.getLocator(locator).pressSequentially(text, { delay: 500 });
         console.log(`typed the ${text} in the ${locator}`);
     }
     /**
@@ -92,7 +92,7 @@ export class ElementUtil {
      * @param value 
      */
     async selectDropdownByValue(locator: flexibleLocator, value: string): Promise<void> {
-        await this.getLocator(locator).selectOption({ value: value })
+        await this.getLocator(locator).selectOption({ value: value });
         console.log(`select the dropdown alue from ${locator} by using ${value}`);
     }
     /**
@@ -101,7 +101,7 @@ export class ElementUtil {
      * @param value 
      */
     async selectDropdownBylabel(locator: flexibleLocator, label: string): Promise<void> {
-        await this.getLocator(locator).selectOption({ label: label })
+        await this.getLocator(locator).selectOption({ label: label });
         console.log(`select the dropdown alue from ${locator} by using ${label}`);
     }
     /**
@@ -110,7 +110,7 @@ export class ElementUtil {
      * @param value 
      */
     async selectDropdownByindex(locator: flexibleLocator, index: number): Promise<void> {
-        await this.getLocator(locator).selectOption({ index: index })
+        await this.getLocator(locator).selectOption({ index: index });
         console.log(`select the dropdown alue from ${locator} by using ${index}`);
     }
     /**
@@ -118,7 +118,7 @@ export class ElementUtil {
      * @param locator 
      */
     async clearText(locator: flexibleLocator): Promise<void> {
-        await this.getLocator(locator).clear()
+        await this.getLocator(locator).clear();
         console.log(`clear the exisisting text in the given ${locator}`);
     }
     /**
@@ -127,7 +127,7 @@ export class ElementUtil {
      * @returns 
      */
     async getText(locator: flexibleLocator): Promise<string> {
-        return await this.getLocator(locator).inputValue()
+        return await this.getLocator(locator).inputValue();
     }
     /**
      * user should provide attribue associated with the locator, this method fetches its value
@@ -135,8 +135,8 @@ export class ElementUtil {
      * @param attribute 
      * @returns 
      */
-    async getArrtibuteValue(locator: flexibleLocator, attribute: string): Promise<String | null> {
-        return await this.getLocator(locator).getAttribute(attribute)
+    async getArrtibuteValue(locator: flexibleLocator, attribute: string): Promise<string | null> {
+        return await this.getLocator(locator).getAttribute(attribute);
     }
     /**
      * this method returns the innertexts of multiple elements
@@ -144,7 +144,7 @@ export class ElementUtil {
      * @returns 
      */
     async getAllInnertexts(locator: flexibleLocator): Promise<string[]> {
-        return await this.getLocator(locator).allInnerTexts()
+        return await this.getLocator(locator).allInnerTexts();
     }
     /**
      * get the actual text of the locator
@@ -152,7 +152,7 @@ export class ElementUtil {
      * @returns 
      */
     async saveText(locator: flexibleLocator): Promise<string> {
-        return await this.getLocator(locator).innerText({ timeout: this.defaultTimeout })
+        return await this.getLocator(locator).innerText({ timeout: this.defaultTimeout });
     }
     /**
  * get the actual text and hidden  of the locator and child elements also
@@ -160,7 +160,7 @@ export class ElementUtil {
  * @returns text of the locator
  */
     async saveallText(locator: flexibleLocator): Promise<string | null> {
-        return await this.getLocator(locator).textContent({ timeout: this.defaultTimeout })
+        return await this.getLocator(locator).textContent({ timeout: this.defaultTimeout });
     }
     /**
      * get all locators
@@ -168,7 +168,7 @@ export class ElementUtil {
      * @returns 
      */
     async getallElements(locator: flexibleLocator): Promise<Locator[]> {
-        return await this.getLocator(locator).all()
+        return await this.getLocator(locator).all();
     }
 
     //********** ASSertions************ */
@@ -177,7 +177,7 @@ export class ElementUtil {
      * @param locator 
      */
     async isVisibleEcho(locator: flexibleLocator): Promise<void> {
-        await this.getLocator(locator).waitFor({ state: 'visible', timeout: this.defaultTimeout })
+        await this.getLocator(locator).waitFor({ state: 'visible', timeout: this.defaultTimeout });
     }
     /**
     * check the visibility of the element
@@ -191,42 +191,42 @@ export class ElementUtil {
      * @param locator 
      */
     async isNotVisible(locator: flexibleLocator): Promise<void> {
-        await expect(this.getLocator(locator)).toBeHidden()
+        await expect(this.getLocator(locator)).toBeHidden();
     }
     /**
  * element should be in disabled state
  * @param locator 
  */
     async isDisabled(locator: flexibleLocator): Promise<void> {
-        await expect(this.getLocator(locator)).toBeDisabled()
+        await expect(this.getLocator(locator)).toBeDisabled();
     }
     /**
      * verify thecheckbox state
      * @param locator 
      */
     async ischecked(locator: flexibleLocator): Promise<void> {
-        await expect(this.getLocator(locator)).toBeChecked()
+        await expect(this.getLocator(locator)).toBeChecked();
     }
     /**
     * verify thecheckbox state to be unchecked
     * @param locator 
     */
     async isUnchecked(locator: flexibleLocator): Promise<void> {
-        await expect(this.getLocator(locator)).not.toBeChecked()
+        await expect(this.getLocator(locator)).not.toBeChecked();
     }
     /**
     * checks user able to type
     * @param locator 
     */
     async isEditable(locator: flexibleLocator): Promise<void> {
-        await expect(this.getLocator(locator)).toBeEditable()
+        await expect(this.getLocator(locator)).toBeEditable();
     }
     /**
  * element is not editable
  * @param locator 
  */
     async isNotEditable(locator: flexibleLocator): Promise<void> {
-        await expect(this.getLocator(locator)).not.toBeEditable()
+        await expect(this.getLocator(locator)).not.toBeEditable();
     }
 
 
@@ -236,22 +236,22 @@ export class ElementUtil {
      * @param url 
      */
     async waitforURL(url: string): Promise<void> {
-        await this.page.waitForURL(url, { waitUntil: 'load' })
-        console.log(`waited till the url loaded on the tab`);
+        await this.page.waitForURL(url, { waitUntil: 'load' });
+        console.log('waited till the url loaded on the tab');
     }
     /**
      * 
      * @returns the page title
      */
     async getTitle(): Promise<string> {
-        return this.page.title()
+        return this.page.title();
     }
     /**
      * equal to thread.sleep
      * @param timeout 
      */
     async sleep(timeout: number): Promise<void> {
-        this.page.waitForTimeout(timeout)
+        this.page.waitForTimeout(timeout);
     }
 
 }

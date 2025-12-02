@@ -1,6 +1,6 @@
-import{test as base,expect} from '@playwright/test'
-import {HomePage} from '../Pages/HomePage'
-import {LoginPage} from '../Pages/LoginPage'
+import{test as base,expect} from '@playwright/test';
+import {HomePage} from '../Pages/HomePage';
+import {LoginPage} from '../Pages/LoginPage';
 
 type myFixture= {
     homepage:HomePage
@@ -38,7 +38,7 @@ export const test = base.extend<myFixture>({
         
   
      
-})
+});
 
  
 export {expect};

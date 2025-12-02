@@ -1,6 +1,6 @@
-import {Locator, Page, test} from '@playwright/test';
-import {ElementUtil} from '../Utils/ElementUtil.js'
-import {SearchResults} from './SearchResultsPage.js'
+import {Locator, Page} from '@playwright/test';
+import {ElementUtil} from '../Utils/ElementUtil.js';
+import {SearchResults} from './SearchResultsPage.js';
 import { LoginPage } from './LoginPage.js';
 
 //1. locators and objects/object Repositories
@@ -20,7 +20,7 @@ export class HomePage {
         this.eleUtil = new ElementUtil(page);
         this.logoutLink = page.getByRole('link', { name: 'Logout' });
         this.search = page.getByRole('textbox', { name: 'Search' });
-        this.searchIcon = page.locator('.fa.fa-search')
+        this.searchIcon = page.locator('.fa.fa-search');
         this.loginLink = page.getByRole('link', { name: 'Login' });
     }
    // 3. write actions in the same page class
@@ -28,20 +28,20 @@ export class HomePage {
  * checks login is successful
  */
    async isUserLoggedIn():Promise<boolean>{
-    return await this.eleUtil.isVisible(this.logoutLink)
+    return await this.eleUtil.isVisible(this.logoutLink);
    }
 
    async logOut():Promise<LoginPage>{
-    await this.eleUtil.click(this.logoutLink)
-    await this.eleUtil.click(this.loginLink)
+    await this.eleUtil.click(this.logoutLink);
+    await this.eleUtil.click(this.loginLink);
 
-    return new LoginPage(this.page)
+    return new LoginPage(this.page);
    }
 
    async searchProduct(searchKey:string):Promise<SearchResults>{
     console.log(`search key is ${searchKey}`);
-    await this.eleUtil.fill(this.search,searchKey)
-    await this.eleUtil.click(this.searchIcon)
+    await this.eleUtil.fill(this.search,searchKey);
+    await this.eleUtil.click(this.searchIcon);
     return new SearchResults(this.page);
    }
 
