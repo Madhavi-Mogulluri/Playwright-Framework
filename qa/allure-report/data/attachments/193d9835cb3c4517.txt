@@ -1,0 +1,14 @@
+filled the pwtest@nal.com in to the element getByRole('textbox', { name: 'E-Mail Address' })
+filled the test123 in to the element getByRole('textbox', { name: 'Password' })
+clicked on the getByRole('button', { name: 'Login' })
+search key is Macbook
+filled the Macbook in to the element getByRole('textbox', { name: 'Search' })
+clicked on the locator('.fa.fa-search')
+clicked on the getByRole('link', { name: 'Macbook Pro' })
+product header is :MacBook Pro
+Product header is:MacBook Pro
+product header is :MacBook Pro
+number of images for MacBook Pro is 4
+no of images are :4
+[ 'Brand: Apple' ]
+[ '$2,000.00' ]
