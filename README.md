@@ -13,6 +13,8 @@ Click the badges below to view the latest reports published via GitHub Pages:
 [![Playwright HTML Reporter](https://img.shields.io/badge/Playwright_HTML-Report-green)](https://madhavi-mogulluri.github.io/Playwright-Framework/playwright-html-report/index.html)
 [![Allure Report](https://img.shields.io/badge/Allure-Report-red)](https://madhavi-mogulluri.github.io/Playwright-Framework/allure-report/index.html)
 
+[![Main Dashboard](https://img.shields.io/badge/Main_Dashboard-blue)](https://madhavi-mogulluri.github.io/Playwright-Framework/)
+
 ---
 
 
