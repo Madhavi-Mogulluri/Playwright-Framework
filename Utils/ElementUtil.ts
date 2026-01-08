@@ -44,13 +44,19 @@ export class ElementUtil {
      * @param options 
      */
     async click(locator: flexibleLocator, options?: { force: boolean, timeout: number }, index?: number): Promise<void> {
-        await this.getLocator(locator, index).click({
+        try{
+            await this.getLocator(locator, index).click({
             force: options?.force,
             timeout: options?.timeout || this.defaultTimeout
 
         });
         console.log(`clicked on the ${locator}`);
     }
+        catch(error){
+            console.warn(`locator not found ${locator}` )
+        }
+    }
+        
     /**
      * do a right click on the element
      * @param locator 
@@ -103,6 +109,14 @@ export class ElementUtil {
     async selectDropdownBylabel(locator: flexibleLocator, label: string): Promise<void> {
         await this.getLocator(locator).selectOption({ label: label });
         console.log(`select the dropdown alue from ${locator} by using ${label}`);
+    }
+    async selectMultipleDropdownValues(locator : flexibleLocator, choices :Array<string>){
+        await this.getLocator(locator).selectOption(choices);
+
+    }
+    async selectallDropdownValues(locator: flexibleLocator,values: string[]){
+       
+        await this.getLocator(locator).selectOption(values);
     }
     /**
      * slect the drop down by using index
