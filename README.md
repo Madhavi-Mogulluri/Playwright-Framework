@@ -4,11 +4,6 @@ Welcome to the **Playwrigt Framework** automation project. Below you can find th
 
 ---
 
-## Workflow Status
-
-[![Playwright Tests](https://github.com/Madhavi-Mogulluri/Playwright-Framework/actions/workflows/playwright.yml/badge.svg)](https://github.com/Madhavi-Mogulluri/Playwright-Framework/actions/workflows/playwright.yml)
-
----
 
 ## HTML Reports
 
