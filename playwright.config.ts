@@ -34,7 +34,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
    
-    trace: 'on-first-retry',
+    trace: 'on',
     headless: !!process.env.CI,
     screenshot: 'on-first-failure',
     video:'on',
