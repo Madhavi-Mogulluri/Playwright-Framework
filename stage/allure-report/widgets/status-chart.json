@@ -1,0 +1,1 @@
+[{"uid":"bb5a608ea7d5cbd7","name":"[STAGE] validate login,@login","time":{"start":1767996395445,"stop":1767996401003,"duration":5558},"status":"passed","severity":"normal"},{"uid":"f465610acbbeffd0","name":"[STAGE] verify invalid login","time":{"start":1767996395461,"stop":1767996400809,"duration":5348},"status":"passed","severity":"normal"}]
