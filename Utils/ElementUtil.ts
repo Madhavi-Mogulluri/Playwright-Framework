@@ -53,7 +53,7 @@ export class ElementUtil {
         console.log(`clicked on the ${locator}`);
     }
         catch(error){
-            console.warn(`locator not found ${locator}` )
+            console.warn(`locator not found ${locator}` );
         }
     }
         
