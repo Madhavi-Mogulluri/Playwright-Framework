@@ -30,7 +30,7 @@ export default defineConfig({
   ],
   
   use: {
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     headless: !!process.env.CI,  // false locally, true in CI
     screenshot: 'on-first-failure',
     video: 'on',

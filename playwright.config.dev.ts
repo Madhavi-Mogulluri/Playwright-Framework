@@ -50,6 +50,7 @@ export default defineConfig({
   {
     name: 'Google Chrome',
     use: {
+      trace : 'retain-on-failure',
       channel: 'chrome',
       viewport: null,
       launchOptions: {
